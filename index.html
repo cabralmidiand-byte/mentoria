@@ -9,6 +9,24 @@
   <link href="https://fonts.googleapis.com/css2?family=Cabinet+Grotesk:wght@400;500;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&display=swap" rel="stylesheet" />
   <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap" rel="stylesheet" />
 
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1004475490274219');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1004475490274219&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
+
   <style>
     /* ─── Reset & Base ─── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -1239,6 +1257,177 @@
       .fases-row::before { display: none; }
     }
 
+    /* ─── Price Card: Urgency ─── */
+    .pc-urgency {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(239,68,68,0.08);
+      border: 1px solid rgba(239,68,68,0.2);
+      border-radius: 100px;
+      padding: 6px 14px;
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 11px;
+      color: #f87171;
+      margin-bottom: 14px;
+      width: fit-content;
+      letter-spacing: 0.03em;
+    }
+
+    /* ─── Price Card: Trust ─── */
+    .pc-trust {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 10px;
+      opacity: 0.65;
+    }
+
+    /* ─── Price Card: Guarantee ─── */
+    .pc-guarantee {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: rgba(74,222,128,0.06);
+      border: 1px solid rgba(74,222,128,0.15);
+      border-radius: 10px;
+      padding: 14px 18px;
+      margin-top: 16px;
+    }
+
+    .guarantee-icon {
+      width: 42px; height: 42px;
+      border-radius: 50%;
+      background: rgba(74,222,128,0.12);
+      border: 1px solid rgba(74,222,128,0.25);
+      display: grid;
+      place-items: center;
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-weight: 800;
+      font-size: 15px;
+      color: #4ade80;
+      flex-shrink: 0;
+    }
+
+    .guarantee-title {
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      color: #4ade80;
+      margin-bottom: 2px;
+    }
+
+    .guarantee-sub {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* ─── Price Card: WhatsApp CTA ─── */
+    .pc-whatsapp-cta {
+      margin-top: 20px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line2);
+      text-align: center;
+    }
+
+    .pc-whatsapp-cta p {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .pc-whatsapp-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      color: #25D366;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .pc-whatsapp-link:hover { opacity: 0.8; }
+
+    /* ─── WhatsApp Float ─── */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #25D366;
+      color: #fff;
+      border-radius: 100px;
+      padding: 14px 22px 14px 18px;
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      text-decoration: none;
+      box-shadow: 0 8px 32px rgba(37,211,102,0.35);
+      transition: transform 0.22s ease, box-shadow 0.22s ease;
+    }
+    .whatsapp-float:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(37,211,102,0.5);
+    }
+    .whatsapp-float-label { white-space: nowrap; }
+
+    /* ─── Sticky Mobile CTA Bar ─── */
+    .sticky-cta-bar {
+      display: none;
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      z-index: 998;
+      background: rgba(8,8,16,0.95);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-top: 1px solid var(--line);
+      padding: 12px 20px;
+      padding-bottom: max(12px, env(safe-area-inset-bottom));
+    }
+
+    .sticky-cta-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .sticky-cta-price {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sticky-cta-price span {
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-weight: 800;
+      font-size: 20px;
+      color: var(--white);
+      line-height: 1;
+    }
+
+    .sticky-cta-price small {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    .sticky-cta-btn {
+      padding: 12px 24px !important;
+      font-size: 14px !important;
+      white-space: nowrap;
+    }
+
     @media (max-width: 768px) {
       nav { padding: 0 24px; }
 
@@ -1261,6 +1450,10 @@
       .comp-layout { grid-template-columns: 1fr; }
 
       footer { padding: 28px 24px; flex-direction: column; text-align: center; }
+
+      .sticky-cta-bar { display: block; }
+      .whatsapp-float { bottom: 88px; right: 16px; padding: 12px 16px 12px 14px; }
+      .whatsapp-float-label { display: none; }
     }
   </style>
 </head>
@@ -1269,7 +1462,7 @@
 <!-- ═══════ NAV ═══════ -->
 <nav>
   <a href="#" class="nav-logo">
-    <img src="logo-academia.webp" alt="Academia de Juízes" />
+    <img src="../logo-academia.webp" alt="Academia de Juízes" />
   </a>
   <a href="#oferta" class="btn btn-cta">Quero entrar para a Mentoria</a>
 </nav>
@@ -1783,10 +1976,33 @@
           <li><span class="pc-ck">✓</span> Videoaulas e cursos gravados</li>
           <li><span class="pc-ck">✓</span> Suporte por 12 meses</li>
         </ul>
-        <a href="#" class="btn btn-cta" style="width:100%;font-size:15px;padding:17px 24px;">
+        <div class="pc-urgency">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          Vagas limitadas para este ciclo
+        </div>
+        <a href="https://pay.hotmart.com/M98931707M?off=l2fdux1a" target="_blank" rel="noopener" class="btn btn-cta" style="width:100%;font-size:15px;padding:17px 24px;" onclick="fbq && fbq('track', 'InitiateCheckout')">
           Quero entrar para a Mentoria
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
-        <p class="pc-note">Corpo docente formado por juízes e aprovados na magistratura</p>
+        <div class="pc-trust">
+          <span>🔒 Pagamento seguro</span>
+          <span>·</span>
+          <span>✦ Hotmart</span>
+        </div>
+        <div class="pc-guarantee">
+          <div class="guarantee-icon">7</div>
+          <div>
+            <p class="guarantee-title">Garantia de 7 dias</p>
+            <p class="guarantee-sub">Se não for para você, devolvemos 100% do investimento</p>
+          </div>
+        </div>
+        <div class="pc-whatsapp-cta">
+          <p>Ainda está com dúvidas?</p>
+          <a href="https://wa.me/5591992451029?text=Ol%C3%A1%2C%20quero%20mais%20informa%C3%A7%C3%B5es%20sobre%20a%20Mentoria%20da%20Academia%20de%20Ju%C3%ADzes" target="_blank" rel="noopener" class="pc-whatsapp-link">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Fale agora com nosso time comercial
+          </a>
+        </div>
       </div>
     </div>
 
@@ -1900,20 +2116,41 @@
     <p class="cta-sub">
       Se você quer parar de estudar no escuro e começar uma preparação com direção, estratégia e acompanhamento, essa mentoria foi feita para você.
     </p>
-    <a href="#oferta" class="btn btn-gold">
+    <a href="https://pay.hotmart.com/M98931707M?off=l2fdux1a" target="_blank" rel="noopener" class="btn btn-gold" onclick="fbq && fbq('track', 'InitiateCheckout')">
       Garantir minha vaga na Mentoria
       <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
     </a>
+    <p style="margin-top:18px;font-size:13px;color:var(--muted);opacity:0.6;">🔒 Pagamento seguro via Hotmart · Garantia de 7 dias</p>
   </div>
 </section>
 
 <!-- ═══════ FOOTER ═══════ -->
 <footer>
   <a href="#" class="footer-logo">
-    <img src="logo-academia.webp" alt="Academia de Juízes" />
+    <img src="../logo-academia.webp" alt="Academia de Juízes" />
   </a>
   <p class="footer-copy">© 2025 Academia de Juízes. Todos os direitos reservados.</p>
 </footer>
+
+<!-- WhatsApp Floating Button -->
+<a href="https://wa.me/5591992451029?text=Ol%C3%A1%2C%20quero%20mais%20informa%C3%A7%C3%B5es%20sobre%20a%20Mentoria%20da%20Academia%20de%20Ju%C3%ADzes" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Fale pelo WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  <span class="whatsapp-float-label">Fale Conosco</span>
+</a>
+
+<!-- Sticky Mobile CTA Bar -->
+<div class="sticky-cta-bar">
+  <div class="sticky-cta-inner">
+    <div class="sticky-cta-price">
+      <span>R$ 2.997</span>
+      <small>à vista ou 12× R$ 328</small>
+    </div>
+    <a href="https://pay.hotmart.com/M98931707M?off=l2fdux1a" target="_blank" rel="noopener" class="btn btn-gold sticky-cta-btn" onclick="fbq && fbq('track', 'InitiateCheckout')">
+      Garantir minha vaga
+      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+</div>
 
 <script>
   function toggleFaq(btn) {
