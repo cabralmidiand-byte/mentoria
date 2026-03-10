@@ -1,0 +1,2165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mentoria Completa — Academia de Juízes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cabinet+Grotesk:wght@400;500;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&display=swap" rel="stylesheet" />
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap" rel="stylesheet" />
+
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1004475490274219');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1004475490274219&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
+
+  <style>
+    /* ─── Reset & Base ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:      #080810;
+      --bg2:     #0e0e18;
+      --bg3:     #13131f;
+      --line:    rgba(255,255,255,0.07);
+      --line2:   rgba(255,255,255,0.04);
+      --wine:    #7B1D2E;
+      --wine2:   #9B2A3F;
+      --gold:    #C4A35A;
+      --gold2:   #E8D5A3;
+      --gold3:   rgba(196,163,90,0.12);
+      --white:   #FFFFFF;
+      --off:     rgba(255,255,255,0.82);
+      --muted:   rgba(255,255,255,0.45);
+      --faint:   rgba(255,255,255,0.15);
+      --card-bg: rgba(255,255,255,0.03);
+      --card-brd: rgba(255,255,255,0.08);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Satoshi', 'Inter', sans-serif;
+      font-weight: 500;
+      background: var(--bg);
+      color: var(--off);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.06;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    .wrapper {
+      max-width: 1140px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    /* ─── Label ─── */
+    .label {
+      font-family: 'Satoshi', sans-serif;
+      font-weight: 700;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.24em;
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .label::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.6;
+    }
+
+    .heading {
+      font-size: clamp(32px, 4vw, 58px);
+    }
+
+    /* ─── Buttons ─── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-weight: 800;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.22s ease;
+      letter-spacing: -0.01em;
+    }
+
+    .btn-cta {
+      background: var(--wine);
+      color: var(--white);
+      border: 1px solid rgba(155,42,63,0.5);
+      border-radius: 6px;
+      padding: 16px 40px;
+      font-size: 15px;
+      box-shadow: 0 0 40px rgba(123,29,46,0.4), inset 0 1px 0 rgba(255,255,255,0.08);
+    }
+    .btn-cta:hover {
+      background: var(--wine2);
+      box-shadow: 0 0 60px rgba(123,29,46,0.6), inset 0 1px 0 rgba(255,255,255,0.1);
+      transform: translateY(-1px);
+    }
+
+    .btn-gold {
+      background: var(--gold);
+      color: #1a1008;
+      border: 1px solid rgba(196,163,90,0.6);
+      border-radius: 6px;
+      padding: 18px 52px;
+      font-size: 16px;
+      box-shadow: 0 0 50px rgba(196,163,90,0.25), inset 0 1px 0 rgba(255,255,255,0.2);
+    }
+    .btn-gold:hover {
+      background: var(--gold2);
+      box-shadow: 0 0 80px rgba(196,163,90,0.4), inset 0 1px 0 rgba(255,255,255,0.25);
+      transform: translateY(-1px);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--faint);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 6px;
+      padding: 16px 36px;
+      font-size: 15px;
+    }
+    .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* ═══════════════════════════════
+       NAV
+    ═══════════════════════════════ */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 72px;
+      background: rgba(8,8,16,0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 60px;
+      z-index: 1000;
+    }
+
+    .nav-logo img { height: 36px; width: auto; }
+
+    /* ═══════════════════════════════
+       HERO
+    ═══════════════════════════════ */
+    #hero {
+      background: var(--bg);
+      padding: 176px 60px 130px;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* dot grid */
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(196,163,90,0.06) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+    }
+
+    /* wine glow */
+    .hero-glow-wine {
+      position: absolute;
+      top: -120px; right: -120px;
+      width: 640px; height: 640px;
+      background: radial-gradient(circle, rgba(123,29,46,0.22) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    /* gold glow bottom-left */
+    .hero-glow-gold {
+      position: absolute;
+      bottom: -80px; left: -80px;
+      width: 480px; height: 480px;
+      background: radial-gradient(circle, rgba(196,163,90,0.08) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 820px;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(196,163,90,0.08);
+      border: 1px solid rgba(196,163,90,0.2);
+      border-radius: 100px;
+      padding: 8px 18px 8px 12px;
+      font-family: 'Satoshi', sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      color: var(--gold);
+      margin-bottom: 40px;
+      letter-spacing: 0.05em;
+    }
+
+    .eyebrow-dot {
+      width: 6px; height: 6px;
+      background: var(--gold);
+      border-radius: 50%;
+      animation: breathe 2.5s infinite;
+    }
+
+    @keyframes breathe {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(1.4); }
+    }
+
+    .hero-title {
+      font-size: clamp(50px, 7vw, 100px);
+      line-height: 0.94;
+      color: var(--white);
+      margin-bottom: 36px;
+    }
+
+    .hero-title em {
+      font-style: normal;
+      color: transparent;
+      -webkit-text-stroke: 1px var(--gold);
+    }
+
+    .hero-sub {
+      font-size: 18px;
+      line-height: 1.8;
+      color: var(--muted);
+      max-width: 580px;
+      margin-bottom: 52px;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 72px;
+    }
+
+    .hero-proof {
+      display: flex;
+      gap: 0;
+      border-top: 1px solid var(--line);
+      padding-top: 44px;
+    }
+
+    .proof-item {
+      flex: 1;
+      padding-right: 44px;
+      border-right: 1px solid var(--line);
+    }
+    .proof-item:last-child { border-right: none; padding-right: 0; padding-left: 44px; }
+    .proof-item:not(:first-child):not(:last-child) { padding-left: 44px; }
+
+    .proof-num {
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-weight: 800;
+      font-size: 32px;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .proof-label {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* ═══════════════════════════════
+       TICKER
+    ═══════════════════════════════ */
+    #ticker {
+      background: var(--wine);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      padding: 14px 0;
+      overflow: hidden;
+    }
+
+    .ticker-track {
+      display: flex;
+      gap: 44px;
+      animation: ticker 50s linear infinite;
+      width: max-content;
+    }
+
+    .tick {
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      color: rgba(255,255,255,0.6);
+      white-space: nowrap;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      flex-shrink: 0;
+    }
+
+    .tick-sep { color: rgba(255,255,255,0.2); flex-shrink: 0; }
+
+    @keyframes ticker {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ═══════════════════════════════
+       O PROBLEMA
+    ═══════════════════════════════ */
+    #problema {
+      background: var(--bg);
+      padding: 140px 60px;
+    }
+
+    .problema-top {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: end;
+      margin-bottom: 80px;
+    }
+
+    .problema-top .heading { color: var(--white); }
+
+    .problema-intro-text {
+      font-size: 17px;
+      line-height: 1.8;
+      color: var(--muted);
+    }
+
+    .dor-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 64px;
+    }
+
+    .dor-cell {
+      background: var(--bg);
+      padding: 32px 28px;
+      transition: background 0.2s;
+    }
+    .dor-cell:hover { background: var(--bg2); }
+
+    .dor-icon { font-size: 20px; margin-bottom: 16px; opacity: 0.7; }
+
+    .dor-title {
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--off);
+      margin-bottom: 8px;
+    }
+
+    .dor-desc {
+      font-size: 13px;
+      line-height: 1.65;
+      color: var(--muted);
+    }
+
+    .problema-quote {
+      background: var(--bg2);
+      border: 1px solid var(--line);
+      border-left: 3px solid var(--wine);
+      border-radius: 12px;
+      padding: 44px 52px;
+      position: relative;
+    }
+
+    .problema-quote p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(22px, 2.5vw, 32px);
+      font-weight: 500;
+      font-style: italic;
+      color: var(--off);
+      line-height: 1.4;
+      max-width: 680px;
+    }
+
+    .problema-quote span { color: var(--gold2); font-style: normal; font-weight: 600; }
+
+    /* ═══════════════════════════════
+       A SOLUÇÃO
+    ═══════════════════════════════ */
+    #solucao {
+      background: var(--bg2);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 140px 60px;
+    }
+
+    .solucao-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 100px;
+      align-items: center;
+    }
+
+    .solucao-left .heading { color: var(--white); margin-bottom: 24px; }
+
+    .solucao-desc {
+      font-size: 17px;
+      line-height: 1.8;
+      color: var(--muted);
+      margin-bottom: 44px;
+    }
+
+    .check-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .check-list li {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 15px;
+      color: var(--off);
+      font-weight: 500;
+    }
+
+    .check-mark {
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      background: rgba(196,163,90,0.12);
+      border: 1px solid rgba(196,163,90,0.3);
+      display: grid;
+      place-items: center;
+      font-size: 10px;
+      color: var(--gold);
+      flex-shrink: 0;
+      font-weight: 900;
+    }
+
+    .sol-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .sol-row {
+      background: var(--card-bg);
+      border: 1px solid var(--card-brd);
+      border-radius: 10px;
+      padding: 18px 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .sol-row:hover { border-color: rgba(196,163,90,0.2); background: rgba(196,163,90,0.04); }
+
+    .sol-row-icon {
+      width: 42px; height: 42px;
+      background: rgba(196,163,90,0.08);
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .sol-row h4 { font-size: 14px; color: var(--off); margin-bottom: 2px; }
+    .sol-row p  { font-size: 12px; color: var(--muted); }
+
+    /* ═══════════════════════════════
+       O QUE O ALUNO RECEBE
+    ═══════════════════════════════ */
+    #incluso {
+      background: var(--bg);
+      padding: 140px 60px;
+    }
+
+    #incluso .heading { color: var(--white); margin-bottom: 80px; }
+
+    .incluso-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .inc-card {
+      background: var(--bg);
+      padding: 40px 34px;
+      transition: background 0.2s;
+      position: relative;
+    }
+    .inc-card:hover { background: var(--bg2); }
+
+    .inc-card::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 34px; right: 34px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(196,163,90,0), transparent);
+      transition: background 0.3s;
+    }
+    .inc-card:hover::after {
+      background: linear-gradient(90deg, transparent, rgba(196,163,90,0.3), transparent);
+    }
+
+    .inc-icon {
+      font-size: 26px;
+      margin-bottom: 22px;
+      opacity: 0.75;
+    }
+
+    .inc-title {
+      font-size: 18px;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+
+    .inc-desc {
+      font-size: 13px;
+      line-height: 1.7;
+      color: var(--muted);
+      margin-bottom: 22px;
+    }
+
+    .inc-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .inc-bullets li {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      font-size: 12px;
+      color: rgba(255,255,255,0.5);
+    }
+
+    .inc-bullets li::before {
+      content: '';
+      width: 4px; height: 4px;
+      background: var(--gold);
+      border-radius: 50%;
+      flex-shrink: 0;
+      opacity: 0.6;
+    }
+
+    /* ═══════════════════════════════
+       FASES
+    ═══════════════════════════════ */
+    #fases {
+      background: var(--bg2);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 140px 60px;
+    }
+
+    #fases .heading { color: var(--white); margin-bottom: 20px; }
+
+    .fases-sub {
+      font-size: 17px;
+      line-height: 1.8;
+      color: var(--muted);
+      max-width: 540px;
+      margin-bottom: 80px;
+    }
+
+    .fases-row {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0;
+      position: relative;
+    }
+
+    /* Connecting line */
+    .fases-row::before {
+      content: '';
+      position: absolute;
+      top: 52px;
+      left: 10%;
+      right: 10%;
+      height: 1px;
+      background: linear-gradient(90deg,
+        transparent 0%,
+        var(--line) 10%,
+        rgba(196,163,90,0.2) 50%,
+        var(--line) 90%,
+        transparent 100%
+      );
+    }
+
+    .fase {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 0 8px;
+    }
+
+    .fase-orb {
+      width: 104px; height: 104px;
+      border-radius: 50%;
+      background: var(--card-bg);
+      border: 1px solid var(--card-brd);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 3px;
+      margin-bottom: 24px;
+      position: relative;
+      z-index: 1;
+      transition: border-color 0.25s, background 0.25s;
+      cursor: default;
+    }
+    .fase:hover .fase-orb {
+      border-color: rgba(196,163,90,0.35);
+      background: rgba(196,163,90,0.06);
+    }
+
+    .fase-n {
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 10px;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+      opacity: 0.7;
+    }
+
+    .fase-ico { font-size: 22px; }
+
+    .fase-name {
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--off);
+      margin-bottom: 7px;
+    }
+
+    .fase-desc { font-size: 12px; color: var(--muted); line-height: 1.55; }
+
+    .fases-note {
+      margin-top: 60px;
+      background: rgba(196,163,90,0.05);
+      border: 1px solid rgba(196,163,90,0.12);
+      border-radius: 12px;
+      padding: 28px 36px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .fases-note-ico { font-size: 30px; flex-shrink: 0; opacity: 0.7; }
+
+    .fases-note p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--muted);
+    }
+
+    .fases-note strong { color: var(--gold2); font-weight: 600; }
+
+    /* ═══════════════════════════════
+       RESULTADOS
+    ═══════════════════════════════ */
+    #resultados {
+      background: var(--bg);
+      padding: 140px 60px;
+    }
+
+    .res-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 72px;
+    }
+
+    .res-stat {
+      background: var(--bg);
+      padding: 48px 40px;
+      text-align: center;
+    }
+
+    .res-num {
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-weight: 800;
+      font-size: clamp(44px, 5.5vw, 68px);
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+
+    .res-label { font-size: 14px; color: var(--muted); line-height: 1.5; }
+
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .testi-card {
+      background: var(--bg2);
+      border: 1px solid var(--card-brd);
+      border-radius: 14px;
+      padding: 32px 28px;
+      transition: border-color 0.2s;
+    }
+    .testi-card:hover { border-color: rgba(196,163,90,0.18); }
+
+    .testi-stars { font-size: 12px; letter-spacing: 3px; color: var(--gold); opacity: 0.75; margin-bottom: 18px; }
+
+    .testi-q {
+      font-size: 14px;
+      line-height: 1.8;
+      color: var(--muted);
+      margin-bottom: 24px;
+      font-style: italic;
+    }
+
+    .testi-who { display: flex; align-items: center; gap: 12px; }
+
+    .testi-av {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: var(--wine);
+      border: 1px solid rgba(255,255,255,0.1);
+      display: grid;
+      place-items: center;
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-weight: 800;
+      color: var(--white);
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+
+    .testi-name { font-family: 'Cabinet Grotesk', sans-serif; font-weight: 700; font-size: 14px; color: var(--off); }
+    .testi-role { font-size: 12px; color: var(--muted); margin-top: 1px; }
+
+    /* ═══════════════════════════════
+       COMPARAÇÃO
+    ═══════════════════════════════ */
+    #comparacao {
+      background: var(--bg2);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 140px 60px;
+    }
+
+    .comp-header {
+      max-width: 580px;
+      margin-bottom: 72px;
+    }
+
+    .comp-header .heading { color: var(--white); margin-bottom: 16px; }
+    .comp-header p { font-size: 16px; color: var(--muted); line-height: 1.75; }
+
+    .comp-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .comp-table {
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    .comp-thead {
+      background: var(--bg3);
+      border-bottom: 1px solid var(--line);
+      padding: 16px 28px;
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+    }
+
+    .comp-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 28px;
+      border-bottom: 1px solid var(--line2);
+    }
+    .comp-row:last-child { border-bottom: none; }
+
+    .comp-item { font-size: 14px; color: var(--muted); }
+    .comp-price { font-family: 'Cabinet Grotesk', sans-serif; font-weight: 700; font-size: 14px; color: rgba(239,68,68,0.7); }
+
+    .comp-row.total {
+      background: var(--bg3);
+      border-top: 1px solid var(--line);
+      margin-top: 4px;
+      padding: 18px 28px;
+    }
+    .comp-row.total .comp-item { color: var(--off); font-weight: 700; font-size: 15px; }
+    .comp-row.total .comp-price { color: var(--gold); font-size: 17px; }
+
+    .comp-right {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .comp-highlight {
+      background: linear-gradient(135deg, rgba(123,29,46,0.4) 0%, rgba(8,8,16,0.9) 100%);
+      border: 1px solid rgba(123,29,46,0.3);
+      border-radius: 14px;
+      padding: 44px 36px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .comp-highlight::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--wine2), transparent);
+    }
+
+    .comp-hl-tag {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .comp-hl-title {
+      font-size: 24px;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+
+    .comp-hl-sub {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+
+    .comp-hl .btn-gold { width: 100%; }
+
+    .comp-saving {
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 28px 32px;
+    }
+
+    .cs-label { font-size: 13px; color: var(--muted); margin-bottom: 4px; }
+
+    .cs-amount {
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-weight: 800;
+      font-size: 40px;
+      color: #4ade80;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .cs-sub { font-size: 13px; color: var(--muted); line-height: 1.5; }
+
+    /* ═══════════════════════════════
+       A OFERTA
+    ═══════════════════════════════ */
+    #oferta {
+      background: var(--bg);
+      padding: 140px 60px;
+    }
+
+    #oferta .heading { text-align: center; color: var(--white); margin-bottom: 16px; }
+
+    .oferta-intro {
+      text-align: center;
+      font-size: 17px;
+      color: var(--muted);
+      max-width: 520px;
+      margin: 0 auto 88px;
+      line-height: 1.8;
+    }
+
+    .oferta-layout {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 44px;
+      max-width: 980px;
+      margin: 0 auto;
+      align-items: start;
+    }
+
+    .oferta-feats {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .of-feat {
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--line2);
+    }
+    .of-feat:last-child { border-bottom: none; padding-bottom: 0; }
+
+    .of-icon {
+      width: 44px; height: 44px;
+      background: var(--gold3);
+      border: 1px solid rgba(196,163,90,0.15);
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+
+    .of-feat h4 { font-size: 15px; color: var(--off); margin-bottom: 4px; }
+    .of-feat p  { font-size: 13px; color: var(--muted); line-height: 1.65; }
+
+    /* Price Card */
+    .price-card {
+      background: var(--bg2);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 40px 36px;
+      position: sticky;
+      top: 88px;
+      overflow: hidden;
+    }
+
+    .price-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(196,163,90,0.4), transparent);
+    }
+
+    .pc-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(74,222,128,0.1);
+      border: 1px solid rgba(74,222,128,0.2);
+      border-radius: 100px;
+      padding: 5px 14px;
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 11px;
+      color: #4ade80;
+      margin-bottom: 24px;
+    }
+
+    .pc-price {
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-weight: 800;
+      font-size: 60px;
+      line-height: 1;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+
+    .pc-price sup { font-size: 22px; vertical-align: super; margin-right: 2px; color: var(--muted); }
+
+    .pc-avista { font-size: 14px; color: var(--muted); margin-bottom: 6px; }
+
+    .pc-parcel {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--faint);
+      margin-bottom: 28px;
+    }
+
+    .pc-divider { height: 1px; background: var(--line); margin: 20px 0; }
+
+    .pc-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+
+    .pc-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .pc-ck {
+      width: 18px; height: 18px;
+      border-radius: 50%;
+      background: rgba(196,163,90,0.1);
+      border: 1px solid rgba(196,163,90,0.25);
+      display: grid;
+      place-items: center;
+      font-size: 9px;
+      color: var(--gold);
+      flex-shrink: 0;
+      font-weight: 900;
+    }
+
+    .pc-note {
+      text-align: center;
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 12px;
+      line-height: 1.5;
+      opacity: 0.7;
+    }
+
+    /* ═══════════════════════════════
+       FAQ
+    ═══════════════════════════════ */
+    #faq {
+      background: var(--bg2);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 140px 60px;
+    }
+
+    .faq-wrap {
+      max-width: 740px;
+      margin: 0 auto;
+    }
+
+    .faq-wrap .label { justify-content: center; }
+    .faq-wrap .label::before { display: none; }
+    .faq-wrap .label::after {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.6;
+    }
+
+    .faq-wrap .heading { text-align: center; color: var(--white); margin-bottom: 60px; }
+
+    .faq-list { display: flex; flex-direction: column; gap: 8px; }
+
+    .faq-item {
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+    .faq-item.open { border-color: rgba(196,163,90,0.15); }
+
+    .faq-q {
+      width: 100%;
+      background: transparent;
+      border: none;
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      text-align: left;
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--off);
+      gap: 16px;
+      transition: color 0.15s;
+    }
+    .faq-q:hover { color: var(--white); }
+    .faq-item.open .faq-q { color: var(--gold2); }
+
+    .faq-icon {
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      background: var(--card-bg);
+      border: 1px solid var(--card-brd);
+      display: grid;
+      place-items: center;
+      font-size: 10px;
+      color: var(--muted);
+      flex-shrink: 0;
+      transition: transform 0.28s ease, background 0.2s, color 0.2s;
+    }
+    .faq-item.open .faq-icon { transform: rotate(180deg); background: var(--gold3); color: var(--gold); }
+
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.36s ease; }
+    .faq-item.open .faq-a { max-height: 400px; }
+
+    .faq-body {
+      padding: 0 24px 22px;
+      font-size: 14px;
+      line-height: 1.8;
+      color: var(--muted);
+      border-top: 1px solid var(--line2);
+      padding-top: 18px;
+    }
+
+    /* ═══════════════════════════════
+       CTA FINAL
+    ═══════════════════════════════ */
+    #cta-final {
+      background: var(--bg);
+      padding: 160px 60px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* radial wine glow */
+    #cta-final::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(123,29,46,0.2) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    /* dot grid */
+    #cta-final::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(196,163,90,0.05) 1px, transparent 1px);
+      background-size: 36px 36px;
+      pointer-events: none;
+    }
+
+    .cta-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .cta-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.24em;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+
+    .cta-title {
+      font-size: clamp(36px, 5.5vw, 76px);
+      line-height: 0.98;
+      color: var(--white);
+      margin-bottom: 28px;
+    }
+
+    .cta-title em {
+      font-style: normal;
+      color: transparent;
+      -webkit-text-stroke: 1px var(--gold);
+    }
+
+    .cta-sub {
+      font-size: 17px;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 52px;
+    }
+
+    /* ═══════════════════════════════
+       FOOTER
+    ═══════════════════════════════ */
+    footer {
+      background: var(--bg);
+      border-top: 1px solid var(--line);
+      padding: 36px 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-logo img { height: 30px; opacity: 0.7; }
+
+    .footer-copy { font-size: 13px; color: var(--muted); opacity: 0.6; }
+
+    /* ═══════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════ */
+    @media (max-width: 1024px) {
+      .dor-grid { grid-template-columns: repeat(2, 1fr); }
+      .incluso-grid { grid-template-columns: repeat(2, 1fr); }
+      .oferta-layout { grid-template-columns: 1fr; }
+      .price-card { position: static; }
+      .fases-row { grid-template-columns: repeat(3, 1fr); gap: 28px; }
+      .fases-row::before { display: none; }
+    }
+
+    /* ─── Price Card: Urgency ─── */
+    .pc-urgency {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(239,68,68,0.08);
+      border: 1px solid rgba(239,68,68,0.2);
+      border-radius: 100px;
+      padding: 6px 14px;
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 11px;
+      color: #f87171;
+      margin-bottom: 14px;
+      width: fit-content;
+      letter-spacing: 0.03em;
+    }
+
+    /* ─── Price Card: Trust ─── */
+    .pc-trust {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 10px;
+      opacity: 0.65;
+    }
+
+    /* ─── Price Card: Guarantee ─── */
+    .pc-guarantee {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: rgba(74,222,128,0.06);
+      border: 1px solid rgba(74,222,128,0.15);
+      border-radius: 10px;
+      padding: 14px 18px;
+      margin-top: 16px;
+    }
+
+    .guarantee-icon {
+      width: 42px; height: 42px;
+      border-radius: 50%;
+      background: rgba(74,222,128,0.12);
+      border: 1px solid rgba(74,222,128,0.25);
+      display: grid;
+      place-items: center;
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-weight: 800;
+      font-size: 15px;
+      color: #4ade80;
+      flex-shrink: 0;
+    }
+
+    .guarantee-title {
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      color: #4ade80;
+      margin-bottom: 2px;
+    }
+
+    .guarantee-sub {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* ─── Price Card: WhatsApp CTA ─── */
+    .pc-whatsapp-cta {
+      margin-top: 20px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line2);
+      text-align: center;
+    }
+
+    .pc-whatsapp-cta p {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .pc-whatsapp-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      color: #25D366;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .pc-whatsapp-link:hover { opacity: 0.8; }
+
+    /* ─── WhatsApp Float ─── */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #25D366;
+      color: #fff;
+      border-radius: 100px;
+      padding: 14px 22px 14px 18px;
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      text-decoration: none;
+      box-shadow: 0 8px 32px rgba(37,211,102,0.35);
+      transition: transform 0.22s ease, box-shadow 0.22s ease;
+    }
+    .whatsapp-float:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(37,211,102,0.5);
+    }
+    .whatsapp-float-label { white-space: nowrap; }
+
+    /* ─── Sticky Mobile CTA Bar ─── */
+    .sticky-cta-bar {
+      display: none;
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      z-index: 998;
+      background: rgba(8,8,16,0.95);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-top: 1px solid var(--line);
+      padding: 12px 20px;
+      padding-bottom: max(12px, env(safe-area-inset-bottom));
+    }
+
+    .sticky-cta-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .sticky-cta-price {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sticky-cta-price span {
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-weight: 800;
+      font-size: 20px;
+      color: var(--white);
+      line-height: 1;
+    }
+
+    .sticky-cta-price small {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    .sticky-cta-btn {
+      padding: 12px 24px !important;
+      font-size: 14px !important;
+      white-space: nowrap;
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 0 24px; }
+
+      #hero { padding: 148px 24px 80px; }
+      .hero-title { font-size: 44px; }
+      .hero-proof { flex-direction: column; gap: 24px; }
+      .proof-item { border-right: none; padding: 0 0 24px; border-bottom: 1px solid var(--line); }
+      .proof-item:last-child { padding: 24px 0 0; border-bottom: none; }
+
+      #problema, #solucao, #incluso, #fases, #resultados,
+      #comparacao, #oferta, #faq, #cta-final { padding: 80px 24px; }
+
+      .problema-top { grid-template-columns: 1fr; gap: 32px; }
+      .dor-grid { grid-template-columns: 1fr; }
+      .solucao-layout { grid-template-columns: 1fr; gap: 52px; }
+      .incluso-grid { grid-template-columns: 1fr; }
+      .fases-row { grid-template-columns: repeat(2, 1fr); gap: 28px; }
+      .res-stats { grid-template-columns: 1fr; }
+      .testi-grid { grid-template-columns: 1fr; }
+      .comp-layout { grid-template-columns: 1fr; }
+
+      footer { padding: 28px 24px; flex-direction: column; text-align: center; }
+
+      .sticky-cta-bar { display: block; }
+      .whatsapp-float { bottom: 88px; right: 16px; padding: 12px 16px 12px 14px; }
+      .whatsapp-float-label { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════ NAV ═══════ -->
+<nav>
+  <a href="#" class="nav-logo">
+    <img src="logo-academia.png" alt="Academia de Juízes" />
+  </a>
+  <a href="#oferta" class="btn btn-cta">Quero entrar para a Mentoria</a>
+</nav>
+
+<!-- ═══════ HERO ═══════ -->
+<section id="hero">
+  <div class="hero-glow-wine"></div>
+  <div class="hero-glow-gold"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">
+      <span class="eyebrow-dot"></span>
+      Mentoria Completa &nbsp;·&nbsp; Magistratura Estadual e Federal
+    </div>
+    <h1 class="hero-title">
+      A Preparação Mais<br>
+      <em>Estratégica</em><br>
+      para a Magistratura
+    </h1>
+    <p class="hero-sub">
+      Planejamento personalizado, materiais específicos, videoaulas e acompanhamento
+      direcionado para quem busca aprovação na Magistratura Estadual e Federal.
+    </p>
+    <div class="hero-actions">
+      <a href="#oferta" class="btn btn-cta">
+        Quero entrar para a Mentoria
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="#incluso" class="btn btn-ghost">Ver o que está incluso</a>
+    </div>
+    <div class="hero-proof">
+      <div class="proof-item">
+        <p class="proof-num">+2.000</p>
+        <p class="proof-label">alunos formados</p>
+      </div>
+      <div class="proof-item">
+        <p class="proof-num">80%</p>
+        <p class="proof-label">aprovação no ENAM entre alunos ativos</p>
+      </div>
+      <div class="proof-item">
+        <p class="proof-num">100%</p>
+        <p class="proof-label">aprovação na prova oral entre alunos acompanhados</p>
+      </div>
+      <div class="proof-item">
+        <p class="proof-num">12</p>
+        <p class="proof-label">meses de acompanhamento completo</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ TICKER ═══════ -->
+<div id="ticker">
+  <div class="ticker-track">
+    <span class="tick">Magistratura Estadual</span><span class="tick-sep"> ◆ </span>
+    <span class="tick">Magistratura Federal</span><span class="tick-sep"> ◆ </span>
+    <span class="tick">ENAM</span><span class="tick-sep"> ◆ </span>
+    <span class="tick">Prova Oral</span><span class="tick-sep"> ◆ </span>
+    <span class="tick">Sentença</span><span class="tick-sep"> ◆ </span>
+    <span class="tick">Prova Discursiva</span><span class="tick-sep"> ◆ </span>
+    <span class="tick">Jurisprudência STF</span><span class="tick-sep"> ◆ </span>
+    <span class="tick">Jurisprudência STJ</span><span class="tick-sep"> ◆ </span>
+    <span class="tick">Doutrina Estruturada</span><span class="tick-sep"> ◆ </span>
+    <span class="tick">Planejamento Estratégico</span><span class="tick-sep"> ◆ </span>
+    <!-- duplicate for seamless loop -->
+    <span class="tick">Magistratura Estadual</span><span class="tick-sep"> ◆ </span>
+    <span class="tick">Magistratura Federal</span><span class="tick-sep"> ◆ </span>
+    <span class="tick">ENAM</span><span class="tick-sep"> ◆ </span>
+    <span class="tick">Prova Oral</span><span class="tick-sep"> ◆ </span>
+    <span class="tick">Sentença</span><span class="tick-sep"> ◆ </span>
+    <span class="tick">Prova Discursiva</span><span class="tick-sep"> ◆ </span>
+    <span class="tick">Jurisprudência STF</span><span class="tick-sep"> ◆ </span>
+    <span class="tick">Jurisprudência STJ</span><span class="tick-sep"> ◆ </span>
+    <span class="tick">Doutrina Estruturada</span><span class="tick-sep"> ◆ </span>
+    <span class="tick">Planejamento Estratégico</span><span class="tick-sep"> ◆ </span>
+  </div>
+</div>
+
+<!-- ═══════ O PROBLEMA ═══════ -->
+<section id="problema">
+  <div class="wrapper">
+    <div class="problema-top">
+      <div>
+        <span class="label">O Problema</span>
+        <h2 class="heading">Por que tantos candidatos estudam por anos e ainda assim não avançam?</h2>
+      </div>
+      <p class="problema-intro-text">
+        Não é falta de inteligência. Nem de esforço. O problema é estrutural — e afeta a maioria dos candidatos à magistratura.
+      </p>
+    </div>
+
+    <div class="dor-grid">
+      <div class="dor-cell">
+        <div class="dor-icon">📚</div>
+        <p class="dor-title">Excesso de material</p>
+        <p class="dor-desc">Você lê tudo, mas sem prioridade não retém o que realmente importa.</p>
+      </div>
+      <div class="dor-cell">
+        <div class="dor-icon">🎯</div>
+        <p class="dor-title">Material não focado</p>
+        <p class="dor-desc">Cursos genéricos não preparam para a complexidade da magistratura.</p>
+      </div>
+      <div class="dor-cell">
+        <div class="dor-icon">🗓️</div>
+        <p class="dor-title">Falta de cronograma</p>
+        <p class="dor-desc">Sem revisões estruturadas, o conteúdo é esquecido em semanas.</p>
+      </div>
+      <div class="dor-cell">
+        <div class="dor-icon">🧭</div>
+        <p class="dor-title">Sem metodologia</p>
+        <p class="dor-desc">Horas de dedicação sem direção geram sensação de esforço improdutivo.</p>
+      </div>
+      <div class="dor-cell">
+        <div class="dor-icon">🧠</div>
+        <p class="dor-title">Esquecimento rápido</p>
+        <p class="dor-desc">Sem revisões programadas, até o que foi estudado bem desaparece.</p>
+      </div>
+      <div class="dor-cell">
+        <div class="dor-icon">🚶</div>
+        <p class="dor-title">Estudo solitário</p>
+        <p class="dor-desc">Sem acompanhamento, é difícil saber se você está no caminho certo.</p>
+      </div>
+      <div class="dor-cell">
+        <div class="dor-icon">⚡</div>
+        <p class="dor-title">Cansaço sem progresso</p>
+        <p class="dor-desc">Estudar demais para avançar de menos é paralisante e leva ao abandono.</p>
+      </div>
+      <div class="dor-cell">
+        <div class="dor-icon">📉</div>
+        <p class="dor-title">Estudo sem direção</p>
+        <p class="dor-desc">Olhar para o edital e não saber por onde começar é mais comum do que parece.</p>
+      </div>
+    </div>
+
+    <div class="problema-quote">
+      <p>
+        Sem método, o estudo vira esforço sem direção.
+        E sem direção, <span>o sonho da magistratura fica cada vez mais distante.</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ A SOLUÇÃO ═══════ -->
+<section id="solucao">
+  <div class="wrapper">
+    <div class="solucao-layout">
+      <div class="solucao-left">
+        <span class="label">A Solução</span>
+        <h2 class="heading">A Academia de Juízes transforma uma preparação solta em um plano real de aprovação</h2>
+        <p class="solucao-desc">
+          A mentoria entrega uma jornada organizada, estratégica e acompanhada — pensada por quem já passou pelas bancas e sabe exatamente o que é cobrado em cada fase.
+        </p>
+        <ul class="check-list">
+          <li><span class="check-mark">✓</span> Organizar sua rotina de estudos com critério</li>
+          <li><span class="check-mark">✓</span> Focar no que realmente importa para as bancas</li>
+          <li><span class="check-mark">✓</span> Revisar de forma estruturada e eficiente</li>
+          <li><span class="check-mark">✓</span> Reter mais conteúdo em menos tempo</li>
+          <li><span class="check-mark">✓</span> Estudar com segurança e sem desperdício</li>
+          <li><span class="check-mark">✓</span> Preparar para todas as fases do concurso</li>
+        </ul>
+      </div>
+      <div class="sol-stack">
+        <div class="sol-row">
+          <div class="sol-row-icon">📋</div>
+          <div><h4>Planejamento estruturado</h4><p>Cronograma montado para o seu perfil e fase atual</p></div>
+        </div>
+        <div class="sol-row">
+          <div class="sol-row-icon">⚖️</div>
+          <div><h4>Material focado em magistratura</h4><p>Sem conteúdo irrelevante — só o que a banca cobra</p></div>
+        </div>
+        <div class="sol-row">
+          <div class="sol-row-icon">🔄</div>
+          <div><h4>Revisões programadas</h4><p>Sistema de revisão para fixação de longo prazo</p></div>
+        </div>
+        <div class="sol-row">
+          <div class="sol-row-icon">👥</div>
+          <div><h4>Acompanhamento da equipe</h4><p>Orientações, feedbacks e ajustes de rota constantes</p></div>
+        </div>
+        <div class="sol-row">
+          <div class="sol-row-icon">🎓</div>
+          <div><h4>Corpo docente especializado</h4><p>Juízes e aprovados na magistratura ensinando</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ O QUE O ALUNO RECEBE ═══════ -->
+<section id="incluso">
+  <div class="wrapper">
+    <span class="label">O Que Está Incluso</span>
+    <h2 class="heading">Tudo que você precisa para uma preparação completa</h2>
+    <div class="incluso-grid">
+
+      <div class="inc-card">
+        <div class="inc-icon">📋</div>
+        <h3 class="inc-title">Planejamento Estratégico</h3>
+        <p class="inc-desc">Seu caminho desenhado com clareza desde o primeiro dia.</p>
+        <ul class="inc-bullets">
+          <li>Cronograma de estudos individualizado</li>
+          <li>Organização das disciplinas por relevância</li>
+          <li>Revisões estruturadas e programadas</li>
+          <li>Priorização do que estudar em cada fase</li>
+        </ul>
+      </div>
+
+      <div class="inc-card">
+        <div class="inc-icon">💬</div>
+        <h3 class="inc-title">Grupo VIP no WhatsApp</h3>
+        <p class="inc-desc">Acesso direto à equipe durante toda a jornada.</p>
+        <ul class="inc-bullets">
+          <li>Canal exclusivo com a equipe Academia</li>
+          <li>Orientações e feedbacks constantes</li>
+          <li>Ajustes de rota durante o ciclo</li>
+          <li>Respostas ágeis a dúvidas</li>
+        </ul>
+      </div>
+
+      <div class="inc-card">
+        <div class="inc-icon">⚖️</div>
+        <h3 class="inc-title">Jurisprudência Estratégica</h3>
+        <p class="inc-desc">Material com foco no que as bancas mais cobram.</p>
+        <ul class="inc-bullets">
+          <li>STF, STJ e TSE organizados por disciplina</li>
+          <li>Agrupados por assuntos estratégicos</li>
+          <li>Recorte aproximado dos últimos 3 anos</li>
+          <li>Foco específico em magistratura</li>
+        </ul>
+      </div>
+
+      <div class="inc-card">
+        <div class="inc-icon">📜</div>
+        <h3 class="inc-title">Legislação Estratégica</h3>
+        <p class="inc-desc">Leis montadas conforme a fase do aluno.</p>
+        <ul class="inc-bullets">
+          <li>Leis classificadas por relevância</li>
+          <li>Leis grifadas para estudo mais ágil</li>
+          <li>Vade mecum adaptado à fase do concurso</li>
+          <li>Priorização do que mais cai nas provas</li>
+        </ul>
+      </div>
+
+      <div class="inc-card">
+        <div class="inc-icon">📖</div>
+        <h3 class="inc-title">Doutrina Estruturada</h3>
+        <p class="inc-desc">Material doutrinário preparado para todas as fases.</p>
+        <ul class="inc-bullets">
+          <li>Material doutrinário em PDF</li>
+          <li>Resumos estratégicos por disciplina</li>
+          <li>Foco nos temas mais importantes</li>
+          <li>Aplicável às várias fases do concurso</li>
+        </ul>
+      </div>
+
+      <div class="inc-card">
+        <div class="inc-icon">🎬</div>
+        <h3 class="inc-title">Videoaulas Explicativas</h3>
+        <p class="inc-desc">Aulas para aprofundamento e compreensão completa.</p>
+        <ul class="inc-bullets">
+          <li>Complemento ao material em PDF</li>
+          <li>Melhor compreensão de doutrina e jurisprudência</li>
+          <li>Acesso aos cursos gravados da Academia</li>
+          <li>Apoio para preparação completa</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ FASES ═══════ -->
+<section id="fases">
+  <div class="wrapper">
+    <span class="label">Preparação Completa</span>
+    <h2 class="heading">Uma mentoria pensada para toda a jornada</h2>
+    <p class="fases-sub">
+      A maioria dos candidatos quebra porque pensa apenas na fase atual. A mentoria prepara o aluno de forma global, para que cada etapa seja vencida com preparo real.
+    </p>
+
+    <div class="fases-row">
+      <div class="fase">
+        <div class="fase-orb">
+          <span class="fase-n">01</span>
+          <span class="fase-ico">📝</span>
+        </div>
+        <p class="fase-name">ENAM</p>
+        <p class="fase-desc">Exame Nacional da Magistratura — porta de entrada para o concurso</p>
+      </div>
+      <div class="fase">
+        <div class="fase-orb">
+          <span class="fase-n">02</span>
+          <span class="fase-ico">✏️</span>
+        </div>
+        <p class="fase-name">Primeira Fase</p>
+        <p class="fase-desc">Prova objetiva de múltipla escolha — filtragem dos candidatos</p>
+      </div>
+      <div class="fase">
+        <div class="fase-orb">
+          <span class="fase-n">03</span>
+          <span class="fase-ico">📃</span>
+        </div>
+        <p class="fase-name">Provas Discursivas</p>
+        <p class="fase-desc">Redação e conhecimento aprofundado — diferencia os melhores</p>
+      </div>
+      <div class="fase">
+        <div class="fase-orb">
+          <span class="fase-n">04</span>
+          <span class="fase-ico">⚖️</span>
+        </div>
+        <p class="fase-name">Sentença</p>
+        <p class="fase-desc">Prova prática — demonstração de raciocínio jurídico aplicado</p>
+      </div>
+      <div class="fase">
+        <div class="fase-orb">
+          <span class="fase-n">05</span>
+          <span class="fase-ico">🎤</span>
+        </div>
+        <p class="fase-name">Prova Oral</p>
+        <p class="fase-desc">100% de aprovação entre alunos acompanhados pela Academia</p>
+      </div>
+    </div>
+
+    <div class="fases-note">
+      <span class="fases-note-ico">🏆</span>
+      <p>
+        <strong>Preparação globalizada é o que separa quem avança de quem repete o ciclo.</strong>
+        A Academia estrutura sua jornada desde o primeiro dia até a aprovação final.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ RESULTADOS ═══════ -->
+<section id="resultados">
+  <div class="wrapper">
+    <span class="label">Provas e Resultados</span>
+    <h2 class="heading" style="color:var(--white);margin-bottom:72px;">Resultados que mostram que método faz diferença</h2>
+
+    <div class="res-stats">
+      <div class="res-stat">
+        <p class="res-num">+2.000</p>
+        <p class="res-label">alunos formados pela Academia de Juízes</p>
+      </div>
+      <div class="res-stat">
+        <p class="res-num">80%</p>
+        <p class="res-label">de aprovação no ENAM entre alunos ativos</p>
+      </div>
+      <div class="res-stat">
+        <p class="res-num">100%</p>
+        <p class="res-label">de aprovação na prova oral entre alunos acompanhados</p>
+      </div>
+    </div>
+
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-q">"A mentoria transformou completamente minha forma de estudar. Antes ficava perdido entre tantos materiais. Hoje tenho foco, clareza e sei exatamente o que estudar a cada dia."</p>
+        <div class="testi-who">
+          <div class="testi-av">R</div>
+          <div>
+            <p class="testi-name">Rafael S.</p>
+            <p class="testi-role">Aprovado na Magistratura Estadual</p>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-q">"A prova oral era meu maior medo. Com o acompanhamento da Academia, entrei confiante e saí aprovado. O material de jurisprudência foi essencial."</p>
+        <div class="testi-who">
+          <div class="testi-av">A</div>
+          <div>
+            <p class="testi-name">Ana Carolina M.</p>
+            <p class="testi-role">Aprovada na Prova Oral — TJ/SP</p>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-q">"Tentei por dois anos sozinho e não avançava. Com a mentoria, organizei minha rotina, foquei no que importa e passei no ENAM pela primeira vez."</p>
+        <div class="testi-who">
+          <div class="testi-av">M</div>
+          <div>
+            <p class="testi-name">Marcelo T.</p>
+            <p class="testi-role">Aprovado no ENAM · 2024</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════ COMPARAÇÃO ═══════ -->
+<section id="comparacao">
+  <div class="wrapper">
+    <div class="comp-header">
+      <span class="label">Comparação de Valor</span>
+      <h2 class="heading">Quanto custaria montar sozinho uma preparação completa?</h2>
+      <p>Veja o que você precisaria investir para reunir individualmente tudo que a mentoria entrega em um único ciclo.</p>
+    </div>
+
+    <div class="comp-layout">
+      <div class="comp-table">
+        <div class="comp-thead">Preparação individual no mercado</div>
+        <div class="comp-row"><span class="comp-item">Vade Mecum</span><span class="comp-price">R$ 239</span></div>
+        <div class="comp-row"><span class="comp-item">Livros e Sinopses</span><span class="comp-price">R$ 872</span></div>
+        <div class="comp-row"><span class="comp-item">Assinatura de jurisprudência</span><span class="comp-price">R$ 175</span></div>
+        <div class="comp-row"><span class="comp-item">Curso para o ENAM</span><span class="comp-price">R$ 1.200</span></div>
+        <div class="comp-row"><span class="comp-item">Curso regular</span><span class="comp-price">R$ 4.000</span></div>
+        <div class="comp-row"><span class="comp-item">Curso de reta final</span><span class="comp-price">R$ 1.300</span></div>
+        <div class="comp-row"><span class="comp-item">Curso de sentenças</span><span class="comp-price">R$ 1.500</span></div>
+        <div class="comp-row"><span class="comp-item">Curso de prova oral</span><span class="comp-price">R$ 2.300</span></div>
+        <div class="comp-row"><span class="comp-item">Mentoria avulsa no mercado</span><span class="comp-price">R$ 4.000</span></div>
+        <div class="comp-row total"><span class="comp-item">Total estimado</span><span class="comp-price">R$ 15.586</span></div>
+      </div>
+
+      <div class="comp-right">
+        <div class="comp-highlight">
+          <p class="comp-hl-tag">Na Academia de Juízes</p>
+          <h3 class="comp-hl-title">Acesso a tudo isso por uma fração desse valor</h3>
+          <p class="comp-hl-sub">Um único investimento. Uma preparação completa. Com estratégia, material e acompanhamento — do planejamento até a aprovação.</p>
+          <a href="#oferta" class="btn btn-gold" style="width:100%;">Ver a oferta completa</a>
+        </div>
+        <div class="comp-saving">
+          <p class="cs-label">Economia estimada de</p>
+          <p class="cs-amount">+ R$ 12.000</p>
+          <p class="cs-sub">ao optar pela Mentoria em vez de montar a preparação individualmente no mercado</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════ A OFERTA ═══════ -->
+<section id="oferta">
+  <div class="wrapper">
+    <span class="label" style="justify-content:center;margin-bottom:20px;">
+      <span style="display:block;width:24px;height:1px;background:var(--gold);opacity:.6;"></span>
+      A Oferta
+      <span style="display:block;width:24px;height:1px;background:var(--gold);opacity:.6;"></span>
+    </span>
+    <h2 class="heading" style="text-align:center;color:var(--white);">Acesso à Mentoria Completa<br>da Academia de Juízes</h2>
+    <p class="oferta-intro">Tudo que você precisa para uma preparação estruturada, estratégica e acompanhada — em um único ciclo de 12 meses.</p>
+
+    <div class="oferta-layout">
+      <ul class="oferta-feats">
+        <li class="of-feat">
+          <div class="of-icon">📋</div>
+          <div>
+            <h4>Planejamento Personalizado e Individual</h4>
+            <p>Cronograma e plano de estudos montado para o seu perfil e fase atual</p>
+          </div>
+        </li>
+        <li class="of-feat">
+          <div class="of-icon">💬</div>
+          <div>
+            <h4>Grupo Individualizado com a Academia</h4>
+            <p>Canal exclusivo no WhatsApp para acompanhamento, feedbacks e ajustes de rota</p>
+          </div>
+        </li>
+        <li class="of-feat">
+          <div class="of-icon">📚</div>
+          <div>
+            <h4>Trilhas de Conteúdo por Matéria</h4>
+            <p>Conteúdo organizado por disciplina com trilhas específicas para cada fase</p>
+          </div>
+        </li>
+        <li class="of-feat">
+          <div class="of-icon">⚖️</div>
+          <div>
+            <h4>Materiais Completos</h4>
+            <p>Jurisprudência, legislação e doutrina — tudo organizado e específico para magistratura</p>
+          </div>
+        </li>
+        <li class="of-feat">
+          <div class="of-icon">🎬</div>
+          <div>
+            <h4>Videoaulas e Cursos Gravados</h4>
+            <p>Acesso a videoaulas explicativas e a todos os cursos gravados da Academia</p>
+          </div>
+        </li>
+        <li class="of-feat">
+          <div class="of-icon">🎓</div>
+          <div>
+            <h4>Corpo Docente Especializado</h4>
+            <p>Juízes e aprovados na magistratura — quem ensina já passou pela banca</p>
+          </div>
+        </li>
+        <li class="of-feat">
+          <div class="of-icon">🗓️</div>
+          <div>
+            <h4>12 Meses de Acesso Completo</h4>
+            <p>Ciclo completo com suporte e materiais atualizados por um ano inteiro</p>
+          </div>
+        </li>
+      </ul>
+
+      <div class="price-card">
+        <div class="pc-badge">✦ Ciclo de 12 meses</div>
+        <div class="pc-price"><sup>R$</sup>2.997</div>
+        <p class="pc-avista">à vista</p>
+        <p class="pc-parcel">ou 12× de R$ 328,48</p>
+        <div class="pc-divider"></div>
+        <ul class="pc-list">
+          <li><span class="pc-ck">✓</span> Planejamento personalizado</li>
+          <li><span class="pc-ck">✓</span> Grupo individualizado no WhatsApp</li>
+          <li><span class="pc-ck">✓</span> Jurisprudência Estratégica</li>
+          <li><span class="pc-ck">✓</span> Legislação Estratégica</li>
+          <li><span class="pc-ck">✓</span> Doutrina Estruturada</li>
+          <li><span class="pc-ck">✓</span> Videoaulas e cursos gravados</li>
+          <li><span class="pc-ck">✓</span> Suporte por 12 meses</li>
+        </ul>
+        <div class="pc-urgency">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          Vagas limitadas para este ciclo
+        </div>
+        <a href="https://pay.hotmart.com/M98931707M?off=l2fdux1a" target="_blank" rel="noopener" class="btn btn-cta" style="width:100%;font-size:15px;padding:17px 24px;" onclick="fbq && fbq('track', 'InitiateCheckout')">
+          Quero entrar para a Mentoria
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <div class="pc-trust">
+          <span>🔒 Pagamento seguro</span>
+          <span>·</span>
+          <span>✦ Hotmart</span>
+        </div>
+        <div class="pc-guarantee">
+          <div class="guarantee-icon">7</div>
+          <div>
+            <p class="guarantee-title">Garantia de 7 dias</p>
+            <p class="guarantee-sub">Se não for para você, devolvemos 100% do investimento</p>
+          </div>
+        </div>
+        <div class="pc-whatsapp-cta">
+          <p>Ainda está com dúvidas?</p>
+          <a href="https://wa.me/5591992451029?text=Ol%C3%A1%2C%20quero%20mais%20informa%C3%A7%C3%B5es%20sobre%20a%20Mentoria%20da%20Academia%20de%20Ju%C3%ADzes" target="_blank" rel="noopener" class="pc-whatsapp-link">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Fale agora com nosso time comercial
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════ FAQ ═══════ -->
+<section id="faq">
+  <div class="faq-wrap">
+    <span class="label">Perguntas Frequentes</span>
+    <h2 class="heading">Dúvidas sobre a mentoria</h2>
+
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Para quem essa mentoria é indicada?
+          <span class="faq-icon">▼</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-body">
+            A mentoria é indicada para bacharéis em Direito e profissionais da área jurídica que desejam aprovação na Magistratura Estadual ou Federal. Seja iniciante ou em estágio avançado, o plano é adaptado ao seu momento atual.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          A mentoria serve para quem está começando do zero?
+          <span class="faq-icon">▼</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-body">
+            Sim. O planejamento é personalizado e construído conforme o seu ponto de partida. Se você está começando agora, a mentoria estrutura sua preparação desde o início — com clareza de caminho e prioridades bem definidas.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          O material também atende quem está focado no ENAM?
+          <span class="faq-icon">▼</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-body">
+            Sim. O ENAM é uma das fases contempladas pela mentoria. Todo o material e a trilha de estudos são organizados para preparar o aluno para todas as etapas, incluindo o Exame Nacional da Magistratura.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          O acesso dura quanto tempo?
+          <span class="faq-icon">▼</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-body">
+            O ciclo da mentoria tem duração de 12 meses. Durante esse período, você tem acesso a todos os materiais, videoaulas, cursos gravados e ao acompanhamento da equipe pelo grupo no WhatsApp.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          A preparação contempla quais fases do concurso?
+          <span class="faq-icon">▼</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-body">
+            A mentoria contempla todas as fases: ENAM, primeira fase (objetiva), provas discursivas, sentença e prova oral. A preparação é global — exatamente para evitar que o aluno seja pego de surpresa em fases mais avançadas.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Como funciona o acompanhamento?
+          <span class="faq-icon">▼</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-body">
+            O acompanhamento acontece por meio de um grupo individualizado no WhatsApp com a equipe da Academia. Ali você recebe orientações constantes, feedbacks sobre sua evolução e ajustes de rota quando necessário — durante todo o ciclo de 12 meses.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          O que está incluso no material?
+          <span class="faq-icon">▼</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-body">
+            O material inclui: jurisprudência estratégica (STF, STJ e TSE), legislação grifada e classificada por relevância, doutrina estruturada em PDF e videoaulas explicativas. Todo o conteúdo é organizado especificamente para magistratura.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ CTA FINAL ═══════ -->
+<section id="cta-final">
+  <div class="cta-inner">
+    <p class="cta-label">Comece agora</p>
+    <h2 class="cta-title">
+      Seu sonho de magistratura<br>
+      merece uma preparação <em>à altura</em>
+    </h2>
+    <p class="cta-sub">
+      Se você quer parar de estudar no escuro e começar uma preparação com direção, estratégia e acompanhamento, essa mentoria foi feita para você.
+    </p>
+    <a href="https://pay.hotmart.com/M98931707M?off=l2fdux1a" target="_blank" rel="noopener" class="btn btn-gold" onclick="fbq && fbq('track', 'InitiateCheckout')">
+      Garantir minha vaga na Mentoria
+      <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+    <p style="margin-top:18px;font-size:13px;color:var(--muted);opacity:0.6;">🔒 Pagamento seguro via Hotmart · Garantia de 7 dias</p>
+  </div>
+</section>
+
+<!-- ═══════ FOOTER ═══════ -->
+<footer>
+  <a href="#" class="footer-logo">
+    <img src="logo-academia.png" alt="Academia de Juízes" />
+  </a>
+  <p class="footer-copy">© 2025 Academia de Juízes. Todos os direitos reservados.</p>
+</footer>
+
+<!-- WhatsApp Floating Button -->
+<a href="https://wa.me/5591992451029?text=Ol%C3%A1%2C%20quero%20mais%20informa%C3%A7%C3%B5es%20sobre%20a%20Mentoria%20da%20Academia%20de%20Ju%C3%ADzes" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Fale pelo WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  <span class="whatsapp-float-label">Fale Conosco</span>
+</a>
+
+<!-- Sticky Mobile CTA Bar -->
+<div class="sticky-cta-bar">
+  <div class="sticky-cta-inner">
+    <div class="sticky-cta-price">
+      <span>R$ 2.997</span>
+      <small>à vista ou 12× R$ 328</small>
+    </div>
+    <a href="https://pay.hotmart.com/M98931707M?off=l2fdux1a" target="_blank" rel="noopener" class="btn btn-gold sticky-cta-btn" onclick="fbq && fbq('track', 'InitiateCheckout')">
+      Garantir minha vaga
+      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+</div>
+
+<script>
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+</script>
+
+</body>
+</html>
